@@ -83,9 +83,10 @@ class MainScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
-                        blurRadius: 2,
-                        color: Color.fromARGB(255, 61, 58, 58).withOpacity(0.4),
-                        offset: Offset(5, 5)),
+                        blurRadius: 4,
+                        color: const Color.fromARGB(255, 61, 58, 58)
+                            .withOpacity(0.4),
+                        offset: const Offset(5, 5)),
                   ]),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -190,7 +191,7 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -201,14 +202,39 @@ class MainScreen extends StatelessWidget {
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  'View All',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).colorScheme.outline,
-                      fontWeight: FontWeight.w400),
-                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    'View All',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).colorScheme.outline,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )
               ],
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, int i) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration:
+                                const BoxDecoration(color: Colors.yellow),
+                          )
+                        ],
+                      ),
+                    );
+                  }),
             )
           ],
         ),
