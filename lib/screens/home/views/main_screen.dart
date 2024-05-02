@@ -1,11 +1,10 @@
 // ignore: unnecessary_import
 import 'dart:math';
 
+import 'package:expense_tracker/app_view.dart';
 import 'package:expense_tracker/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../data/colors.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
