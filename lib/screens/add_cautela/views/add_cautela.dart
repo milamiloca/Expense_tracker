@@ -3,8 +3,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../app_view.dart';
 
-class AddCautela extends StatelessWidget {
+class AddCautela extends StatefulWidget {
   const AddCautela({super.key});
+
+  @override
+  State<AddCautela> createState() => _AddCautelaState();
+}
+
+class _AddCautelaState extends State<AddCautela> {
+  TextEditingController quantidadeController = TextEditingController();
+  TextEditingController categoriaController = TextEditingController();
+  TextEditingController servidorController = TextEditingController();
+  TextEditingController dataController = TextEditingController();
+  TextEditingController tamanhoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +44,7 @@ class AddCautela extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
+                  controller: quantidadeController,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                       filled: true,
@@ -52,6 +64,7 @@ class AddCautela extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
+                controller: categoriaController,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     filled: true,
@@ -70,6 +83,26 @@ class AddCautela extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
+                controller: tamanhoController,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    prefixIcon: const Icon(
+                      FontAwesomeIcons.pen,
+                      size: 16,
+                      color: Colors.grey,
+                    ),
+                    hintText: 'Tamanho',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none)),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              TextFormField(
+                controller: servidorController,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     filled: true,
@@ -86,6 +119,7 @@ class AddCautela extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFormField(
+                controller: dataController,
                 textAlignVertical: TextAlignVertical.center,
                 readOnly: true,
                 onTap: () {
@@ -103,7 +137,7 @@ class AddCautela extends StatelessWidget {
                       size: 16,
                       color: Colors.grey,
                     ),
-                    hintText: 'Date',
+                    hintText: 'Data',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none)),
