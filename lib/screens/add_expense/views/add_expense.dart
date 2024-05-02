@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddExpense extends StatelessWidget {
+class AddExpense extends StatefulWidget {
   const AddExpense({super.key});
+
+  @override
+  State<AddExpense> createState() => _AddExpenseState();
+}
+
+class _AddExpenseState extends State<AddExpense> {
+  TextEditingController expenseController = TextEditingController();
+  TextEditingController categoryController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +40,7 @@ class AddExpense extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
+                  controller: expenseController,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                       filled: true,
@@ -52,6 +62,7 @@ class AddExpense extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
+                controller: categoryController,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     filled: true,
@@ -68,6 +79,7 @@ class AddExpense extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextFormField(
+                controller: dateController,
                 textAlignVertical: TextAlignVertical.center,
                 readOnly: true,
                 onTap: () {
@@ -99,7 +111,10 @@ class AddExpense extends StatelessWidget {
                 child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(backgroundColor: Colors.black),
-                    child: const Text('Save')),
+                    child: const Text(
+                      'Save',
+                      style: TextStyle(fontSize: 22, color: Colors.white),
+                    )),
               )
             ],
           ),
