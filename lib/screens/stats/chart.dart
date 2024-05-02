@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,24 @@ class _MyChartState extends State<MyChart> {
   }
 
   BarChartGroupData makeGroupData(int x, double y) {
-    return BarChartGroupData(x: x, barRods: [BarChartRodData(toY: y)]);
+    return BarChartGroupData(x: x, barRods: [
+      BarChartRodData(
+          toY: y,
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).colorScheme.tertiary,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.primary,
+            ],
+            transform: const GradientRotation(pi / 40),
+          ),
+          width: 10,
+          backDrawRodData: BackgroundBarChartRodData(
+            color: Colors.grey.shade300,
+            show: true,
+            toY: 5,
+          ))
+    ]);
   }
 
   List<BarChartGroupData> showingGroups() => List.generate(8, (i) {
@@ -58,7 +77,13 @@ class _MyChartState extends State<MyChart> {
           reservedSize: 38,
           getTitlesWidget: getTiles,
         )),
-        leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: true)),
+        leftTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: true,
+            reservedSize: 38,
+            getTitlesWidget: leftTitles,
+          ),
+        ),
       ),
       borderData: FlBorderData(show: false),
       gridData: const FlGridData(show: false),
@@ -116,21 +141,22 @@ class _MyChartState extends State<MyChart> {
       fontWeight: FontWeight.bold,
       fontSize: 14,
     );
+
     String text;
     if (value == 0) {
-      text = '\$ 1K';
+      text = '1K';
     } else if (value == 2) {
-      text = '\$ 2K';
+      text = '2K';
     } else if (value == 3) {
-      text = '\$ K';
+      text = '3K';
     } else if (value == 4) {
-      text = '\$ 4K';
+      text = '4K';
     } else if (value == 5) {
-      text = '\$ 5K';
+      text = '5K';
     } else {
       return Container();
     }
     return SideTitleWidget(
-        child: Text(text), space: 16, axisSide: meta.axisSide);
+        child: Text(text, style: style), space: 0, axisSide: meta.axisSide);
   }
 }
