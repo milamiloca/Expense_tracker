@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:expense_tracker/screens/add_expense/views/add_expense.dart';
+import 'package:expense_tracker/screens/add_cautela/views/add_cautela.dart';
 import 'package:expense_tracker/screens/home/views/main_screen.dart';
 import 'package:expense_tracker/screens/stats/stats.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => const AddExpense(),
+                builder: (BuildContext context) => const AddCautela(),
               ),
             );
           },

@@ -83,14 +83,20 @@ class _AddExpenseState extends State<AddExpense> {
                       color: Colors.grey,
                     ),
                     suffixIcon: IconButton(
+                        //criar categoria
                         onPressed: () {
                           showDialog(
                               context: context,
                               builder: (ctx) {
                                 return AlertDialog(
+                                  title: const Text('Create a Category'),
+                                  //cria uma tela a frente
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
+                                      SizedBox(
+                                        height: 16,
+                                      ),
                                       TextFormField(
                                         //controller: dateController,
                                         textAlignVertical:
@@ -104,7 +110,7 @@ class _AddExpenseState extends State<AddExpense> {
                                                     BorderRadius.circular(12),
                                                 borderSide: BorderSide.none)),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 16,
                                       ),
                                       TextFormField(
@@ -120,7 +126,7 @@ class _AddExpenseState extends State<AddExpense> {
                                                     BorderRadius.circular(12),
                                                 borderSide: BorderSide.none)),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 16,
                                       ),
                                       TextFormField(

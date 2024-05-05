@@ -1,6 +1,7 @@
 // ignore: unnecessary_import
 import 'dart:math';
 
+import 'package:expense_tracker/app_view.dart';
 import 'package:expense_tracker/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,14 +45,14 @@ class MainScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome!",
+                          "Bem-vindo(a)!",
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).colorScheme.outline),
                         ),
                         Text(
-                          "Camila Ferreira",
+                          "GM Ferreira",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -197,7 +198,7 @@ class MainScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Transactions',
+                  'Cautelas',
                   style: TextStyle(
                       fontSize: 16,
                       color: Theme.of(context).colorScheme.onBackground,
@@ -224,7 +225,7 @@ class MainScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Cores.g0.toColor(),
                               borderRadius: BorderRadius.circular(12)),
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),

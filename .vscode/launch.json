@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "almox_seg",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "almox_seg (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "almox_seg (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "almox_seg",
+            "cwd": "almox_seg",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "almox_seg (profile mode)",
+            "cwd": "almox_seg",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "almox_seg (release mode)",
+            "cwd": "almox_seg",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
