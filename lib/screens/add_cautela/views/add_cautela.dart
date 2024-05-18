@@ -20,6 +20,18 @@ class _AddCautelaState extends State<AddCautela> {
   TextEditingController tamanhoController = TextEditingController();
   DateTime selectDate = DateTime.now();
 
+  List<String> myCategoriesIcons = [
+    'calça',
+    'camiseta',
+    'capa colete',
+    'cobertura',
+    'combat',
+    'coturno',
+    'jaqueta',
+    'polo',
+    'pull over'
+  ];
+
   @override
   void initState() {
     dataController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
@@ -130,24 +142,29 @@ class _AddCautelaState extends State<AddCautela> {
                                           textAlignVertical:
                                               TextAlignVertical.center,
                                           readOnly: true,
-                                          decoration: const InputDecoration(
-                                              isDense: true,
-                                              filled: true,
-                                              suffixIcon: Icon(
-                                                  CupertinoIcons.chevron_down,
-                                                  size: 12),
-                                              fillColor: Colors.white,
-                                              hintText: 'Icon',
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.vertical(
-                                                          top: Radius.circular(
-                                                              12)),
-                                                  borderSide: BorderSide.none)),
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            filled: true,
+                                            suffixIcon: Icon(
+                                                CupertinoIcons.chevron_down,
+                                                size: 12),
+                                            fillColor: Colors.white,
+                                            hintText: 'Icon',
+                                            border: OutlineInputBorder(
+                                                borderRadius: isExpended
+                                                    ? const BorderRadius
+                                                        .vertical(
+                                                        top:
+                                                            Radius.circular(12))
+                                                    : BorderRadius.circular(12),
+                                                borderSide: BorderSide.none),
+                                          ),
                                         ),
                                         isExpended
                                             ? Container(
-                                                width: double.infinity,
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
                                                 height: 200,
                                                 decoration: const BoxDecoration(
                                                     color: Colors.white,
@@ -156,6 +173,22 @@ class _AddCautelaState extends State<AddCautela> {
                                                             bottom:
                                                                 Radius.circular(
                                                                     12))),
+                                                child: GridView.builder(
+                                                    gridDelegate:
+                                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                                            crossAxisCount: 5),
+                                                    itemCount: myCategoriesIcons
+                                                        .length,
+                                                    itemBuilder:
+                                                        (context, int i) {
+                                                      return Container(
+                                                          width: 50,
+                                                          height: 50,
+                                                          decoration: BoxDecoration(
+                                                              image: DecorationImage(
+                                                                  image: AssetImage(
+                                                                      'assets/${myCategoriesIcons[i]}.png'))));
+                                                    }),
                                               )
                                             : Container(),
                                         const SizedBox(
